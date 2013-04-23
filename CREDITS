@@ -1,0 +1,28 @@
+Tue, 23 Nov 2010 20:03:45 -0800 (PST)
+Subject: Re: Yet another TI3410 serial<->usb talk
+From: FCPK <deathw...@gmail.com>
+To: TI Launchpad <ti-launchpad@googlegroups.com>
+
+I've had some more time to experiment and talk to linux-usb guys.
+I did find a way to make the device not freeze so badly it'll stop
+being usable, at least most of the time.
+
+In cdc_acm.c
+disabling the bailout in acm_tty_open:
+>         if (0 > acm_set_control(acm, acm->ctrlout =3D ACM_CTRL_DTR | ACM_=
+CTRL_RTS) &&
+>            (acm->ctrl_caps & USB_CDC_CAP_LINE))
+>                 goto full_bailout;
+
+and acm_set_control in acm_port_down:
+> acm_set_control(acm, acm->ctrlout =3D 0);
+
+This has an unwanted effect though of not "resetting"/"stopping"
+incoming bytes while there are no readers, and that when you connect a
+reader(minicom, cat, whichever) you get up to 250-ish bytes suddenly.
+(my guess is that it's because the driver isn't polling during that
+time)
+
+Anyone wanting to get his hands a little dirty to fix that is
+welcome:)
+

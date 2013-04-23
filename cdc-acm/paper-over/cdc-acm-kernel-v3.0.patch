@@ -1,0 +1,37 @@
+diff --git a/drivers/usb/class/cdc-acm.c b/drivers/usb/class/cdc-acm.c
+index dac7676..2e02bb2 100644
+--- a/drivers/usb/class/cdc-acm.c
++++ b/drivers/usb/class/cdc-acm.c
+@@ -28,6 +28,8 @@
+  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+  */
+ 
++//#define PATCH_DISABLED
++
+ #undef DEBUG
+ #undef VERBOSE_DEBUG
+ 
+@@ -492,9 +494,11 @@ static int acm_tty_open(struct tty_struct *tty, struct file *filp)
+ 		goto bail_out;
+ 	}
+ 
++#ifdef PATCH_DISABLED
+ 	if (0 > acm_set_control(acm, acm->ctrlout = ACM_CTRL_DTR | ACM_CTRL_RTS) &&
+ 	    (acm->ctrl_caps & USB_CDC_CAP_LINE))
+ 		goto bail_out;
++#endif
+ 
+ 	usb_autopm_put_interface(acm->control);
+ 
+@@ -542,7 +546,11 @@ static void acm_port_down(struct acm *acm)
+ 	mutex_lock(&open_mutex);
+ 	if (acm->dev) {
+ 		usb_autopm_get_interface(acm->control);
++
++#ifdef PATCH_DISABLED
+ 		acm_set_control(acm, acm->ctrlout = 0);
++#endif
++
+ 		usb_kill_urb(acm->ctrlurb);
+ 		for (i = 0; i < ACM_NW; i++)
+ 			usb_kill_urb(acm->wb[i].urb);
