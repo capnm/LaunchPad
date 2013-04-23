@@ -1,4 +1,4 @@
-# LaunchPads ♡ Linux
+# Linux ♡ LaunchPads
 [stlink](https://github.com/texane/stlink/) [energia](https://github.com/energia/Energia/)
 [mspdebug](http://sourceforge.net/p/mspdebug/code/ci/master/tree/) [openocd](https://github.com/ntfreak/openocd/)
 [lm4tools](https://github.com/scompo/lm4tools/)
