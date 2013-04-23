@@ -1,4 +1,6 @@
 # TI LaunchPads & Linux
+[energia](https://github.com/energia/Energia) [mspdebug](http://mspdebug.sourceforge.net/) [openocd](https://github.com/ntfreak/openocd)
+[lm4tools](https://github.com/scompo/lm4tools)
 
 # cdc-acm kernel module fix 
 
