@@ -1,8 +1,9 @@
-# TI LaunchPads & Linux
-[energia](https://github.com/energia/Energia) [mspdebug](http://mspdebug.sourceforge.net/) [openocd](https://github.com/ntfreak/openocd)
+# LaunchPads ♡ Linux
+[stlink](https://github.com/texane/stlink) [energia](https://github.com/energia/Energia)
+[mspdebug](http://mspdebug.sourceforge.net/) [openocd](https://github.com/ntfreak/openocd)
 [lm4tools](https://github.com/scompo/lm4tools)
 
-# cdc-acm kernel module fix 
+# TI MSP430 LanunchPad cdc-acm kernel module fix 
 
 ### Symptoms 
 The serial connection to [MSP430 LaunchPad](http://processors.wiki.ti.com/index.php/MSP-EXP430G2_Out_of_the_box) is really screwed up.
