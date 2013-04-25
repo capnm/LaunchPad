@@ -1,7 +1,7 @@
 # file: /etc/udev/rules.d/launchpad_link.rules
 # (overrides all other rules)
 
-BUS!="usb", ACTION!="add", SUBSYSTEM!=="usb_device", GOTO="ll_rules_end"
+SUBSYSTEMS!="usb", ACTION!="add", SUBSYSTEM!=="usb_device", GOTO="ll_rules_end"
 
 # msp430 launchPad
 # idVendor           0x0451 Texas Instruments, Inc.
@@ -31,11 +31,11 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="0666
 # idProduct          0x0101 J-Link ARM
 # iManufacturer           1 SEGGER
 # iProduct                2 J-Link
-ATTRS{idProduct}=="0101", ATTRS{idVendor}=="1366", MODE="666", GROUP="plugdev"
-ATTRS{idProduct}=="0102", ATTRS{idVendor}=="1366", MODE="666", GROUP="plugdev"
-ATTRS{idProduct}=="0103", ATTRS{idVendor}=="1366", MODE="666", GROUP="plugdev"
-ATTRS{idProduct}=="0104", ATTRS{idVendor}=="1366", MODE="666", GROUP="plugdev"
-ATTRS{idProduct}=="0105", ATTRS{idVendor}=="1366", MODE="666", GROUP="plugdev"
+ATTRS{idProduct}=="0101", ATTRS{idVendor}=="1366", MODE="666", GROUP="plugdev", SYMLINK+="jlink1_%n"
+ATTRS{idProduct}=="0102", ATTRS{idVendor}=="1366", MODE="666", GROUP="plugdev", SYMLINK+="jlink2_%n"
+ATTRS{idProduct}=="0103", ATTRS{idVendor}=="1366", MODE="666", GROUP="plugdev", SYMLINK+="jlink3_%n"
+ATTRS{idProduct}=="0104", ATTRS{idVendor}=="1366", MODE="666", GROUP="plugdev", SYMLINK+="jlink4_%n"
+ATTRS{idProduct}=="0105", ATTRS{idVendor}=="1366", MODE="666", GROUP="plugdev", SYMLINK+="jlink5_%n"
 
 LABEL="ll_rules_end"
 
