@@ -23,7 +23,8 @@ then
 fi
 
 echo "** replace the cdc-acm module"
-sudo cp -v cdcacm.ko $d/cdcacm.ko
+cp -v cdcacm.ko /tmp/
+sudo cp -v /tmp/cdcacm.ko $d/cdcacm.ko
 
 echo "** clean up"
 make clean
