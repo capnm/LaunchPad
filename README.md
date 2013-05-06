@@ -12,19 +12,10 @@ Running ``dmesg`` shows lines like:
 ```tty_port_close_start: tty->count = 1 port count = 0```
 
 ### Install
-Note: it has been fixed in the kernel v3.3.
-
-For kernels v3.2+ (e.g. Ubuntu LTS 12.04)
+For kernels v3.0 .. v3.2+ (e.g. Ubuntu LTS 12.04)
 ```
 git clone git://github.com/capnm/LaunchPad.git
-cd LaunchPad/cdc-acm/fix-v3.2+
-./install.sh
-```
-
-For kernels v3.0+
-```
-git clone git://github.com/capnm/LaunchPad.git
-cd LaunchPad/cdc-acm/fix-v3.0+
+cd LaunchPad/cdc-acm/fix-msp430lp-serial
 ./install.sh
 ```
 
